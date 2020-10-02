@@ -38,3 +38,48 @@ nchar (y)
 #10 round(r, n), indicates the number of decimal places to be used.
 r <- 4.09245
 round(r, 2)
+
+#11 Function outer, add array x elements with array y
+x <- c(1,2,3,4,5,10,20,30,50)
+y <- c(5,10)
+outer(x,y, "+")
+
+#12 Function Unique, this function remove duplicated elements from a vector
+z <- c(2:8,4:10) 
+z
+unique(z)
+
+#13 Function t, this function transposes a matrix 
+t(x)
+x <- matrix(1:9,3,3)
+class(x)
+
+#14 Function toString, this function produces a single character string describing
+x <- c("Dog","Cat","Bird")
+toString(x)
+toString(x, width=5)
+
+#15 Function abs, this function computes the absolute values of numeric data
+x <- c(-10,2,71,-7,4,-8,69)
+abs(x)
+
+#16 Function exp, this function compute the exponential value of a number or number vector
+x <- 5
+exp(x)
+
+#17 Function diag, this function extracs or replace the diagonal of a matrix
+diag(1,3,4)
+diag(10,3,4)
+
+#18 Function charmatch, this function find matches between two arguments
+charmatch("at",c("dog","cat","fish","rabbit"))
+
+#19 Function nchar, this function determines the size of each elements of an character vector
+x <- c("dog","cat","fish","rabbit")
+nchar(x)
+
+#20 Function factorial, this function computes the factorial
+x <- 5
+factorial(x)
+
+factorial(2)
