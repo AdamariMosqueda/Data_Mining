@@ -31,9 +31,9 @@ N numbers is the size that one wants to define, we choose the number 1000, set t
 
 In the if loop, what we do is that while the value of i remains between -1 and 1, the counter will increase its value one by one, so we know the number of numbers that came out within this range according to the number of N. The for loop will continue until the amount of N. 
 
-At the end, counter is divided by N to have the percentage of the times that numbers tha fall in that range appearced, if it is multiplied by 100 that percentage can be seen more clearly.
+At the end, counter is divided by N to have the percentage of the times that numbers that fall in that range appearced, if it is multiplied by 100 that percentage can be seen more clearly.
 
-The code wah checked multiple times, most of the time the result stayed within 0.60 to 0.69
+The code was checked multiple times, most of the time the result stayed within 0.60 to 0.69
 
 
 
