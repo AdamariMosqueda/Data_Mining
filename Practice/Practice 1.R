@@ -15,7 +15,7 @@
 #5. Increase counter if the condition is true
 #6. return a result <- counter / N
  
-N <-100
+N <-1000
 Counter <-0
 
 for(i in rnorm(N, mean = 0, sd = 1 ))
@@ -27,3 +27,5 @@ for(i in rnorm(N, mean = 0, sd = 1 ))
 result <-Counter/N
 
 print (result)
+
+mean <- result*N
