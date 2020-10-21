@@ -6,9 +6,9 @@
 
 
 > [Research]()
->> * [MOSQUEDA ESPINOZA ADAMARI ANTONIA]()
->>> + [Research 1]()
->>> + [Research 2]()
+>> * [MOSQUEDA ESPINOZA ADAMARI ANTONIA](https://github.com/AdamariMosqueda/Data_Mining/tree/Unit_1/Research/MOSQUEDA%20ESPINOZA%20ADAMARI%20ANTONIA)
+>>> + [Research 1](https://github.com/AdamariMosqueda/Data_Mining/tree/Unit_1/Research/MOSQUEDA%20ESPINOZA%20ADAMARI%20ANTONIA/Research%201)
+>>> + [Research 2](https://github.com/AdamariMosqueda/Data_Mining/tree/Unit_1/Research/MOSQUEDA%20ESPINOZA%20ADAMARI%20ANTONIA/Research%202)
 >> * [OSUNA ENCISO PABLO ALEJANDRO]()
 >>> + [Research 1]()
 >>> + [Research 2]()
