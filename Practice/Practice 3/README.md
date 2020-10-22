@@ -1,6 +1,6 @@
 # Practice 3
 
-## In practice three, hicimos un ejercicio simulando ser científicos de datos para obtener el estado financiero de la organización
+## In practice three, we did an exercise pretending to be data scientists to obtain the financial status of the organization
 
 
 > Data
@@ -20,7 +20,9 @@ profit
 tax <- round(0.30 * profit, 2)
 tax 
 ```
-La funcion round es para reducir los decimales, recibe dos valores, el numero a imprimir o el resultado de una operacion y el segundo son la cantidad de decimales que va a imprimir.
+
+The round function is to reduce the decimal places, it receives two values, the number to print or the result of an operation and the second is the number of decimal places to be printed.
+
 > Calculate Profit Remaining After Tax Is Deducted
 ```
 profit.after.tax <- profit - tax
