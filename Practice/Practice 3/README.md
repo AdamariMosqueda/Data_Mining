@@ -38,3 +38,70 @@ profit.margin
 mean_pat <- mean(profit.after.tax)
 mean_pat
 ```
+The good.months variable was created, with which the profit must be greater than the average, in order to see the months with the best profit
+> Find The Months With Above-Mean Profit After Tax
+```
+good.months <- profit.after.tax> mean_pat
+good.months
+```
+The reverse part was done, instead of seeing the good months, now the bad months will be seen, using the sign ! which must be different
+> Bad Months Are The Opposite Of Good Months !
+```
+bad.months <- !good.months
+bad.months
+```
+
+To see the best month, a new variable was created which is best.month, here the results are equalized, until the largest of all comes out
+> The Best Month Is Where Profit After Tax Was Equal To The Maximum
+```
+best.month <- profit.after.tax == max(profit.after.tax)
+best.month
+```
+Here the inverse part will be shown, instead of seeing the best month in profit after tax, a new variable is created called Worst.month, in which we will do the following, if the profit after tax is equal to the minimum of the profit after tax
+> The Worst Month Is Where Profit After Tax Was Equal To The Minimum
+```
+worst.month <- profit.after.tax == min(profit.after.tax)
+worst.month
+```
+we will create a new variable for each data we want to obtain, with round, we will round the numbers and within the parentheses we will divide by a thousand and with zero we will not show the decimals
+> Convert All Calculations To Units Of One Thousand Dollars
+```
+revenue.1000 <- round(revenue / 1000, 0)
+expenses.1000 <- round(round / 1000, 0)
+profit.1000 <- round(profit / 1000, 0)
+profit.after.tax.1000 <- round(profit.after.tax / 1000, 0)
+```
+We print the variables
+> Print Results
+```
+revenue.1000
+expenses.1000
+profit.1000
+profit.after.tax.1000
+profit.margin
+good.months
+bad.months
+best.month
+worst.month
+```
+With rbind, we join all our data to make a matrix
+> BONUS:
+Preview Of What's Coming In The Next Section
+```
+M <- rbind(
+  revenue.1000,
+  expenses.1000,
+  profit.1000,
+  profit.after.tax.1000,
+  profit.margin,
+  good.months,
+  bad.months,
+  best.month,
+  worst.month
+)
+```
+
+> Print The Matrix
+```
+M
+```
