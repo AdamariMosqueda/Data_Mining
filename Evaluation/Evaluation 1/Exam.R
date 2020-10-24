@@ -29,6 +29,15 @@ Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.86617073
 #archivo CVS contiene datos combinados de ambos años. Toda manipulación de datos
 #debe realizarse en R (No en Excel) porque este proyecto puede ser auditado en una
 #etapa posterior.
+dfmerge <- data.frame(Country= Country_Code, Life_Expectancy_1960= Life_Expectancy_At_Birth_1960,
+                      Life_Expectancy_2013= Life_Expectancy_At_Birth_2013)
+
+head(stats)
+head(dfmerge)
+merged <- merge(stats, dfmerge, by.x = "Country.Code", by.y = "Country")
+head(merged)
+
+
 
 #5.- También se le ha pedido que proporcione información sobre cómo se comparan los
 #dos períodos. (Hint: Basicamente la expricacion de sus observaciones)
