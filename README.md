@@ -17,4 +17,4 @@
 
 
 > * [Evaluation](https://github.com/AdamariMosqueda/Data_Mining/tree/Unit_1/Evaluation/Evaluation%201)
->> + [Exam](https://github.com/AdamariMosqueda/Data_Mining/blob/Unit_1/Evaluation/Evaluation%201/Exam.R)
+>> + [Exam](https://github.com/AdamariMosqueda/Data_Mining/blob/Unit_1/Evaluation/Evaluation%201/README.md)
