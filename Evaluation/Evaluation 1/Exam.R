@@ -41,6 +41,7 @@ qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_2013,
 #3.- Se le han proporcionado datos durante 2 aï¿½os: 1960 y 2013 y se le exige que
 #produzca una visualizaciï¿½n para cada uno de estos aï¿½os.
 
+##Visualizando solo la fertilidad
 y1960 <- stats[stats$Year == 1960,]
 y1960
 
@@ -52,6 +53,15 @@ y2013
 
 qplot(data = y2013, x=Region, y=Fertility.Rate, 
       color = Region, size=I(3), shape=I(19), alpha =I(.4), main = "Fertility Rate in 2013")
+
+##Usando los merge separados por año, incluyen la esperanza de vida
+qplot(data = merged60, x = Fertility.Rate, y = Life_Expectancy_1960,
+      color = Region, size=I(3), shape=I(19), alpha =I(.4), 
+      main = "Fertility Rate vs Life Expectancy 1960")
+
+qplot(data = merged13, x = Fertility.Rate, y = Life_Expectancy_2013,
+      color = Region, size=I(3), shape=I(19), alpha =I(.4), 
+      main = "Fertility Rate vs Life Expectancy 2013")
 
 #4.- Algunos datos se han proporcionado en un archivo CVS, algunos en vectores R. El
 #archivo CVS contiene datos combinados de ambos aï¿½os. Toda manipulaciï¿½n de datos
