@@ -21,6 +21,16 @@ Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.86617073
 
 
 #2.- El diagrama de dispersión también debe clasificarse por países Regiones (Country  Regions).
+#Usamos el merge combinado
+qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_1960,
+      color = Region, size=I(3), shape=I(19), alpha =I(.4), 
+      main = "Fertility Rate vs Life Expectancy")
+
+
+qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_2013,
+      color = Region, size=I(3), shape=I(19), alpha =I(.4), 
+      main = "Fertility Rate vs Life Expectancy 2013")
+
 
 #3.- Se le han proporcionado datos durante 2 años: 1960 y 2013 y se le exige que
 #produzca una visualización para cada uno de estos años.
@@ -29,6 +39,8 @@ Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.86617073
 #archivo CVS contiene datos combinados de ambos años. Toda manipulación de datos
 #debe realizarse en R (No en Excel) porque este proyecto puede ser auditado en una
 #etapa posterior.
+
+##Merge con ambos años
 dfmerge <- data.frame(Country= Country_Code, Life_Expectancy_1960= Life_Expectancy_At_Birth_1960,
                       Life_Expectancy_2013= Life_Expectancy_At_Birth_2013)
 
@@ -37,6 +49,19 @@ head(dfmerge)
 merged <- merge(stats, dfmerge, by.x = "Country.Code", by.y = "Country")
 head(merged)
 
+
+##Merges separados por los años
+#Aplicamos filtros para tener los dataframes separados por año
+stats1960 <-  stats[stats$Year == 1960,]
+stats2013  <- stats[stats$Year == 2013,]
+
+#En cada merge solo tomamos una de las columnas de la esperanza de vida
+dfmerge60 <- data.frame(Country= Country_Code, Life_Expectancy_1960= Life_Expectancy_At_Birth_1960)
+dfmerge13 <- data.frame(Country= Country_Code, Life_Expectancy_2013= Life_Expectancy_At_Birth_2013)
+
+#Merges por año
+merged60 <- merge(stats1960, dfmerge60, by.x = "Country.Code", by.y = "Country")
+merged13 <- merge(stats2013, dfmerge13, by.x = "Country.Code", by.y = "Country")
 
 
 #5.- También se le ha pedido que proporcione información sobre cómo se comparan los
