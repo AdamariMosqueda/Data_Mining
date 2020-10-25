@@ -16,8 +16,8 @@ Life_Expectancy_At_Birth_1960 <- c(65.5693658536586,32.328512195122,32.984829268
 Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.8661707317073,77.537243902439,77.1956341463415,75.9860975609756,74.5613658536585,75.7786585365854,82.1975609756098,80.890243902439,70.6931463414634,56.2516097560976,80.3853658536585,59.3120243902439,58.2406341463415,71.245243902439,74.4658536585366,76.5459512195122,75.0735365853659,76.2769268292683,72.4707317073171,69.9820487804878,67.9134390243903,74.1224390243903,75.3339512195122,78.5466585365854,69.1029268292683,64.3608048780488,49.8798780487805,81.4011219512195,82.7487804878049,81.1979268292683,75.3530243902439,51.2084634146342,55.0418048780488,61.6663902439024,73.8097317073171,62.9321707317073,72.9723658536585,79.2252195121951,79.2563902439025,79.9497804878049,78.2780487804878,81.0439024390244,61.6864634146342,80.3024390243903,73.3199024390244,74.5689512195122,75.648512195122,70.9257804878049,63.1778780487805,82.4268292682927,76.4243902439025,63.4421951219512,80.8317073170732,69.9179268292683,81.9682926829268,68.9733902439024,63.8435853658537,80.9560975609756,74.079512195122,61.1420731707317,58.216487804878,59.9992682926829,54.8384146341464,57.2908292682927,80.6341463414634,73.1935609756098,71.4863902439024,78.872512195122,66.3100243902439,83.8317073170732,72.9428536585366,77.1268292682927,62.4011463414634,75.2682926829268,68.7046097560976,67.6604146341463,81.0439024390244,75.1259756097561,69.4716829268293,83.1170731707317,82.290243902439,73.4689268292683,73.9014146341463,83.3319512195122,70.45,60.9537804878049,70.2024390243902,67.7720487804878,65.7665853658537,81.459756097561,74.462756097561,65.687243902439,80.1288780487805,60.5203902439024,71.6576829268293,74.9127073170732,74.2402926829268,49.3314634146342,74.1634146341464,81.7975609756098,73.9804878048781,80.3391463414634,73.7090487804878,68.811512195122,64.6739024390244,76.6026097560976,76.5326585365854,75.1870487804878,57.5351951219512,80.7463414634146,65.6540975609756,74.7583658536585,69.0618048780488,54.641512195122,62.8027073170732,74.46,61.466,74.567512195122,64.3438780487805,77.1219512195122,60.8281463414634,52.4421463414634,74.514756097561,81.1048780487805,81.4512195121951,69.222,81.4073170731707,76.8410487804878,65.9636829268293,77.4192195121951,74.2838536585366,68.1315609756097,62.4491707317073,76.8487804878049,78.7111951219512,80.3731707317073,72.7991707317073,76.3340731707317,78.4184878048781,74.4634146341463,71.0731707317073,63.3948292682927,74.1776341463415,63.1670487804878,65.878756097561,82.3463414634146,67.7189268292683,50.3631219512195,72.4981463414634,55.0230243902439,55.2209024390244,66.259512195122,70.99,76.2609756097561,80.2780487804878,81.7048780487805,48.9379268292683,74.7157804878049,51.1914878048781,59.1323658536585,74.2469268292683,69.4001707317073,65.4565609756098,67.5223658536585,72.6403414634147,70.3052926829268,73.6463414634147,75.1759512195122,64.2918292682927,57.7676829268293,71.159512195122,76.8361951219512,78.8414634146341,68.2275853658537,72.8108780487805,74.0744146341464,79.6243902439024,75.756487804878,71.669243902439,73.2503902439024,63.583512195122,56.7365853658537,58.2719268292683,59.2373658536585,55.633)
 
 
-#1.- Debe generar un diagrama de dispersiï¿½n (scatter-plot) que muestre las estadï¿½sticas
-#de esperanza de vida ( Life expectancy - eje y) y tasa de fertilidad (Fertility Rate -eje x) por paï¿½s (Country).
+#1.- You must generate a scatter-plot that shows the statistics
+      #of life expectancy (Life expectancy - y axis) and fertility rate (Fertility Rate -x axis) by country (Country).
 
 qplot(data = merged, y=Life_Expectancy_1960, x=Fertility.Rate, color = Country.Name, 
       size=I(3), shape=I(19), alpha =I(.4),main = "Fertility Rate and Life Expectancy per Country 1960")
@@ -26,8 +26,8 @@ qplot(data = merged, y=Life_Expectancy_1960, x=Fertility.Rate, color = Country.N
       size=I(3), shape=I(19), alpha =I(.4),main = "Fertility Rate and Life Expectancy per Country 2013")
 
 
-#2.- El diagrama de dispersiï¿½n tambiï¿½n debe clasificarse por paï¿½ses Regiones (Country  Regions).
-#Usamos el merge combinado
+#2.- The scatterplot should also be classified by Country Regions.
+      #We use the merge combined
 qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_1960,
       color = Region, size=I(3), shape=I(19), alpha =I(.4), 
       main = "Fertility Rate vs Life Expectancy 1960")
@@ -38,10 +38,12 @@ qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_2013,
       main = "Fertility Rate vs Life Expectancy 2013")
 
 
-#3.- Se le han proporcionado datos durante 2 aï¿½os: 1960 y 2013 y se le exige que
-#produzca una visualizaciï¿½n para cada uno de estos aï¿½os.
+#3.- You have been provided data for 2 years: 1960 and 2013 and you are required to
+      #produce a visualization for each of these years.
 
-##Visualizando solo la fertilidad
+
+
+# Visualizing only fertility
 y1960 <- stats[stats$Year == 1960,]
 y1960
 
@@ -54,7 +56,7 @@ y2013
 qplot(data = y2013, x=Region, y=Fertility.Rate, 
       color = Region, size=I(3), shape=I(19), alpha =I(.4), main = "Fertility Rate in 2013")
 
-##Usando los merge separados por año, incluyen la esperanza de vida
+##Using the merges separated by year, include life expectancy
 qplot(data = merged60, x = Fertility.Rate, y = Life_Expectancy_1960,
       color = Region, size=I(3), shape=I(19), alpha =I(.4), 
       main = "Fertility Rate vs Life Expectancy 1960")
@@ -63,12 +65,12 @@ qplot(data = merged13, x = Fertility.Rate, y = Life_Expectancy_2013,
       color = Region, size=I(3), shape=I(19), alpha =I(.4), 
       main = "Fertility Rate vs Life Expectancy 2013")
 
-#4.- Algunos datos se han proporcionado en un archivo CVS, algunos en vectores R. El
-#archivo CVS contiene datos combinados de ambos aï¿½os. Toda manipulaciï¿½n de datos
-#debe realizarse en R (No en Excel) porque este proyecto puede ser auditado en una
-#etapa posterior.
+#4.- Some data has been provided in a CVS file, some in R vectors. The
+      #CVS file contains combined data from both years. All data manipulation
+      #should be done in R (Not in Excel) because this project can be audited in a
+      #later stage.
 
-##Merge con ambos aï¿½os
+##Merge with both years
 dfmerge <- data.frame(Country= Country_Code, Life_Expectancy_1960= Life_Expectancy_At_Birth_1960,
                       Life_Expectancy_2013= Life_Expectancy_At_Birth_2013)
 
@@ -78,19 +80,33 @@ merged <- merge(stats, dfmerge, by.x = "Country.Code", by.y = "Country")
 head(merged)
 
 
-##Merges separados por los aï¿½os
-#Aplicamos filtros para tener los dataframes separados por aï¿½o
+## Merges separated by years
+# We apply filters to have the dataframes separated by year
 stats1960 <-  stats[stats$Year == 1960,]
 stats2013  <- stats[stats$Year == 2013,]
 
-#En cada merge solo tomamos una de las columnas de la esperanza de vida
+#In each merge we only take one of the life expectancy columns
 dfmerge60 <- data.frame(Country= Country_Code, Life_Expectancy_1960= Life_Expectancy_At_Birth_1960)
 dfmerge13 <- data.frame(Country= Country_Code, Life_Expectancy_2013= Life_Expectancy_At_Birth_2013)
 
-#Merges por aï¿½o
+#Merges per year
 merged60 <- merge(stats1960, dfmerge60, by.x = "Country.Code", by.y = "Country")
 merged13 <- merge(stats2013, dfmerge13, by.x = "Country.Code", by.y = "Country")
 
 
-#5.- Tambiï¿½n se le ha pedido que proporcione informaciï¿½n sobre cï¿½mo se comparan los
-#dos perï¿½odos. (Hint: Basicamente la expricacion de sus observaciones)
+# 5.- You have also been asked to provide information on how the
+      #two periods. (Hint: Basically the expression of his observations)
+
+In 1960 there was more fertility, before the families were large,
+that explains the high fertility in some regions,
+Europe has low fertility and a large part of the African countries have low life expectancy,
+If we look at the 2013 graph, fertility in regions was dropping too much,
+Europe remained and Africa is now the region with high fertility but they still have the lowest life expectancies
+
+In the comparison of the fertility rate, in 1960 regions such as Africa, Asia, the Middle East and Oceania
+They had a very high fertility rate, ranging from 5 to 8 children per family,
+while in Europe, they had a fertility rate in a range of 2 to 4 children per family,
+while in America the range is 3 to 8 children per family.
+In 2013 the fertility rate dropped considerably, regions like Europe, the rate remains between 1 to 2 children per family,
+while in Africa it is in a range of 2 to 7 children per family, and the rest of the regions remain
+in 1 to 4 children per family.
