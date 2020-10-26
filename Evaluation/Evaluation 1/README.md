@@ -4,8 +4,6 @@ stats <- read.csv(file.choose())
 library(ggplot2)
 ```
 
-
-
 > Life Expectancy
 
 ```R
@@ -16,6 +14,8 @@ Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.86617073
 
 ## 1.- You must generate a scatter-plot that shows the statistics of life expectancy (Life expectancy - y axis) and fertility rate (Fertility Rate -x axis) by country (Country).
 
+> In the first part of the exam, two plots are made, one from the year 1960 and the other from the year 2013, to arrive at this solution the data were divided in the years we occupied, once we had these data separated, on the Y axis put life expectancy, on the X axis the fertility rate was put, and this by country
+
 ```R
 qplot(data = merged, y=Life_Expectancy_1960, x=Fertility.Rate, color = Country.Name, 
       size=I(3), shape=I(19), alpha =I(.4),main = "Fertility Rate and Life Expectancy per Country 1960")
@@ -25,6 +25,9 @@ qplot(data = merged, y=Life_Expectancy_1960, x=Fertility.Rate, color = Country.N
 ```
 ![Imgur](https://imgur.com/reMfI3l.png)
 ## 2.- The scatterplot should also be classified by Country Regions. We use the merge combined
+
+> In the second part of the exam, if you made two new plots, in the same way the information was separated in the year 1960 and 2013, on the X axis the fertility rate was added and on the Y axis the hope of life, but here instead of being by country, now it was by region, and it was where there was a change in the graph
+
 ```R
 qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_1960,
       color = Region, size=I(3), shape=I(19), alpha =I(.4), 
@@ -39,7 +42,11 @@ qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_2013,
 ![Imgur](https://imgur.com/BdpVKLx.png)
 ## 3.- You have been provided data for 2 years: 1960 and 2013 and you are required to produce a visualization for each of these years.
 
->Visualizing only fertility
+> In point number three of the exam, we had a different point of view and you leave the two proposals in the exam, since they provided good information
+
+> + Visualizing only fertility
+
+>> The first point of view was made a graph with the following data on the X axis were used as the region and the Y axis as the fertility rate and thus have a view of how many members were made up of families both in 1960 and in 2013
 
 ```R
 y1960 <- stats[stats$Year == 1960,]
@@ -57,7 +64,9 @@ qplot(data = y2013, x=Region, y=Fertility.Rate,
 ![Imgur](https://imgur.com/GO9cNNk.png)
 ![Imgur](https://imgur.com/KmeFJFO.png)
 
-> Using the merges separated by year, include life expectancy
+> + Using the merges separated by year, include life expectancy
+
+>> The second point of view was made a graph with the following data on the X axis, the fertility rate data was used and the Y axis as the life expectancy, to have the data in a scatter plot of the fertility rate and life expectancy by region, this in both 1960 and 2013
 
 ```R
 qplot(data = merged60, x = Fertility.Rate, y = Life_Expectancy_1960,
@@ -74,7 +83,9 @@ qplot(data = merged13, x = Fertility.Rate, y = Life_Expectancy_2013,
 
 ## 4.- Some data has been provided in a CSV file, some in R vectors. The CSV file contains combined data from both years. All data manipulation should be done in R (Not in Excel) because this project can be audited in a later stage.
 
-> Merge with both years
+> + Merge with both years
+>> A new data frame was created, along with the three vectors that we had as data, to have the life expectancy, then a merge was made with the CSV data and the previously created dataframe
+
 ```R
 dfmerge <- data.frame(Country= Country_Code, Life_Expectancy_1960= Life_Expectancy_At_Birth_1960,
 Life_Expectancy_2013= Life_Expectancy_At_Birth_2013)
@@ -85,7 +96,7 @@ merged <- merge(stats, dfmerge, by.x = "Country.Code", by.y = "Country")
 head(merged)
 ```
 
-> Merges separated by years
+>  + Merges separated by years
 > We apply filters to have the dataframes separated by year
 
 ```R
