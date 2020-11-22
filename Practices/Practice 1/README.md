@@ -40,3 +40,27 @@ facet_wrap: What it does is separate the color information (in this case genres)
 gg + facet_wrap( ~ Genre, ncol=3)
 ```
 ![Imgur](https://imgur.com/fURS8l2.png)
+
+
+## Fourth function
+
+The box plot compactly shows the distribution of a continuous variable. Displays five summary statistics (the median, two hinges, and two whiskers) and all "peripheral" points individually.
+
+```
+p + geom_boxplot()
+```
+
+![123778407_393861018434911_5841774439122771756_n](https://i.imgur.com/Tl7zRLH.png)
+
+## Fifth function
+
+A carpet diagram is a compact visualization designed to complement a 2d display with the two 1d marginal distributions. Carpet charts show individual cases, so they are best used with smaller data sets.
+
+```
+ggplot(movies, aes(x=CriticRating, y=AudienceRating, 
+                   color=Genre)) + 
+geom_rug()
+```
+
+![123742593_651092602223136_7850482789807092024_n](https://i.imgur.com/y0A1Ukv.png)
+
