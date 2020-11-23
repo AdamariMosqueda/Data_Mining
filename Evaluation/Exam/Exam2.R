@@ -1,6 +1,17 @@
 
 setwd("C:/Users/MARIO BAJA PC/Documents/Mineria_de_datos/Data_Mining/Evaluation/Exam")
+setwd("/home/alejandro/Data_Mining/Evaluation/Exam/")
 getwd()
+
+install.packages('extrafont')
+library(extrafont)
+extrafont::font_import()
+
+windowsFonts()
+
+font_import(pattern="Comic")
+
+fonts()
 
 Data <- read.csv("Project-Data.csv")
 
@@ -29,7 +40,9 @@ Data3
 p <- ggplot(Data3, aes(x=Genre, y=Gross_US, 
                  color=Studio, size=Budget))
 
-p + geom_jitter() + geom_boxplot(color = "Black") 
-
-
-
+p + geom_jitter() + geom_boxplot(size=0.2, color = "Black", alpha=0.5) +
+  labs(title = "Domestic Gross % by Genre", x = "Genre", y = "Gross % US") + scale_size(name="Budget $M") +
+  theme(axis.title.x = element_text(color = "BlueViolet", size = 18),
+        axis.title.y = element_text(color = "BlueViolet", size = 18),
+        plot.title = element_text(hjust = 0.5, size = 22),
+        text = element_text(family = "Comic Sans MS"))
