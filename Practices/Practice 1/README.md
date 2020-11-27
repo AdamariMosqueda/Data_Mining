@@ -46,7 +46,7 @@ gg + facet_wrap( ~ Genre, ncol=3)
 
 The box plot compactly shows the distribution of a continuous variable. Displays five summary statistics (the median, two hinges, and two whiskers) and all "peripheral" points individually.
 
-```
+```R
 p + geom_boxplot()
 ```
 
@@ -56,7 +56,7 @@ p + geom_boxplot()
 
 A carpet diagram is a compact visualization designed to complement a 2d display with the two 1d marginal distributions. Carpet charts show individual cases, so they are best used with smaller data sets.
 
-```
+```R
 ggplot(movies, aes(x=CriticRating, y=AudienceRating, 
                    color=Genre)) + 
 geom_rug()
