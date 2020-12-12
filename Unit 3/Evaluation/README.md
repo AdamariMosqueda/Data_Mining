@@ -39,3 +39,64 @@ test_set[-3] = scale(test_set[-3])
 ```
 Usamos la función Scale que lo que hace es centrar los valores de una matriz y escalarlas.
 
+```R
+library(e1071)
+classifier = naiveBayes(formula = Purchased ~ .,
+                        data = training_set,
+                        type = 'C-classification',
+                        kernel = 'linear')
+naiveBayes
+```
+Las librerias de e1071, nos servira para implementar metodos para el apredizaje estadistico, para esto usaremos el metodo de naiveBayes, donde la formula sera igual a todos los datos de la muestra purchased, el data sera igual al conjunto de entrenamiento, el tipo sera la etiqueta para predecir que es C-classification y el kernel sera linear, por el uso de 2 etiquetas o los simbolos de color diferente.
+
+# Predicting the Test set results
+```R
+y_pred = predict(classifier, newdata = test_set[-3])
+y_pred
+```
+Creamos la prediccion del eje Y, donde obtendremos como resultado las compras realizadas
+
+# Making the Confusion Matrix
+```R
+cm = table(test_set[, 3], y_pred)
+cm
+```
+En la matriz de confusion, tenemos nuestros datos reales y las predicciones, que al final nos dara como resultado la exactitud de los datos
+
+# Visualising the Training set results
+```R
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set)
+plot(set[, -3],
+     main = 'Naive Bayes (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+![Rplot](https://i.imgur.com/twJe9wj.png)
+
+# Visualising the Test set results
+```R
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set)
+plot(set[, -3], main = 'Naive Bayes (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3')) 
+```
+
+![Rplot01](https://i.imgur.com/ZMQQFok.png)
