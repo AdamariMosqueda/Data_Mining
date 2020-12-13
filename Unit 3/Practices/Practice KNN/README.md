@@ -1,4 +1,4 @@
-# Practice 2
+# Practice KNN
 
 ## In this practice we explain the code to plot a KNN classifier
 

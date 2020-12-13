@@ -1,22 +1,22 @@
 # K-Means Clustering
-# Set our workspace
+## Set our workspace
 ```R
 getwd()
 setwd("/home/alejandro/Data_Mining/Unit 3/Practices/Practice K-Means/")
 getwd()
 ```
 
-# Importing the dataset
+## Importing the dataset
 ```R
 dataset = read.csv('Mall_Customers.csv')
 dataset = dataset[4:5]
 ```
 
-# Using the elbow method to find the optimal number of clusters
+## Using the elbow method to find the optimal number of clusters
 
-Agregamos nuestra semilla de aleatoriedad, despues en un vector donde i esta en bucle en secuencia de 1 a 10, donde los datos de wcss de i sera igual a la suma, donde kmeans hara la agrupacion de los vectores del dataset e i, e identificaremos los datos de la columna withinss.
+We add our randomness seed, then in a vector where i is looped in sequence from 1 to 10, where the wcss data of i will be equal to the sum, where kmeans will make the grouping of the vectors of the ei dataset, and we will identify the data from column withinss.
 
-En el plot tendremos la secuencia del vector 1 a 10, usando los datos de wcss, en tipo seria igual a b, el nombre principal de la grafica sera The Elbow Method, en el eje X tendremos el nombre de Number of clusters y en el eje Y WCSS
+In the plot we will have the sequence of the vector 1 to 10, using the wcss data, in type it would be equal to b, the main name of the graph will be The Elbow Method, in the X axis we will have the name of Number of clusters and in the axis And WCSS
 
 ```R
 set.seed(6)
@@ -31,16 +31,15 @@ plot(1:10,
 ```
 ![Rplot](https://i.imgur.com/6Rz6jhZ.png)
 
-# Fitting K-Means to the dataset
+## Fitting K-Means to the dataset
 ```R
 set.seed(29)
 kmeans = kmeans(x = dataset, centers = 5)
 y_kmeans = kmeans$cluster
 ```
-# Visualising the clusters
-# install.packages('cluster')
+## Visualising the clusters
 
-Usando la libreria de cluster, haremos uso de la herramienta clusplot, donde tendremos los datos del dataset y la media de Y
+Using the cluster library, we will use the clusplot tool, where we will have the dataset data and the mean of Y
 
 ```R
 library(cluster)

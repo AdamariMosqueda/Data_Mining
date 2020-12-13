@@ -1,5 +1,7 @@
 # Homework analise the follow atomation backwardElimination function 
 
+Backward elimination, which involves starting with all candidate variables, testing the deletion of each variable using a chosen model fit criterion, deleting the variable (if any) whose loss gives the most statistically insignificant deterioration of the model fit, and repeating this process until no further variables 
+
 
 
 ```R

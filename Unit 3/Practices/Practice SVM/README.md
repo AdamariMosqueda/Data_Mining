@@ -1,4 +1,4 @@
-# SMV
+# Practice SMV
 
 ## Graph 1: Training set
 ```R

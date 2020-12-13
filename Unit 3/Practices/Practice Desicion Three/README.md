@@ -1,20 +1,19 @@
- # Decision Tree Classification
+# Practice Decision Tree Classification
 ```R
 getwd()
 setwd("/home/chris/Documents/itt/Enero_Junio_2020/Mineria_de_datos/DataMining/MachineLearning/DesicionThree")
 getwd()
 ```
-# Importing the dataset
+## Importing the dataset
 ```R
 dataset = read.csv('Social_Network_Ads.csv')
 dataset = dataset[3:5]
 ```
-# Encoding the target feature as factor
+## Encoding the target feature as factor
 ```R
 dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
 ```
-# Splitting the dataset into the Training set and Test set
-# install.packages('caTools')
+## Splitting the dataset into the Training set and Test set
 ```R
 library(caTools)
 set.seed(123)
@@ -22,29 +21,29 @@ split = sample.split(dataset$Purchased, SplitRatio = 0.75)
 training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 ```
-# Feature Scaling
+## Feature Scaling
 ```R
 training_set[-3] = scale(training_set[-3])
 test_set[-3] = scale(test_set[-3])
 ```
-# Fitting Decision Tree Classification to the Training set
-# install.packages('rpart')
+## Fitting Decision Tree Classification to the Training set
+
 ```R
 library(rpart)
 classifier = rpart(formula = Purchased ~ .,
                    data = training_set)
 ```
-# Predicting the Test set results
+## Predicting the Test set results
 ```R
 y_pred = predict(classifier, newdata = test_set[-3], type = 'class')
 y_pred
 ```
-# Making the Confusion Matrix
+## Making the Confusion Matrix
 ```R
 cm = table(test_set[, 3], y_pred)
 cm
 ```
-# Visualising the Training set results
+## Visualising the Training set results
 
 Using the ElemStatLearn library and using the training_set data, we will make two sequences, followed by the use of the grid_set, where we will compare the previous sequences, we will combine Age and EstimatedSalary to form a vector.
 
@@ -73,7 +72,7 @@ points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
 
-# Visualising the Test set results
+## Visualising the Test set results
 
 Using the ElemStatLearn library and using the test_set data, we will make two sequences, followed by the use of the grid_set, where we will compare the previous sequences, we will combine Age and EstimatedSalary to form a vector.
 
@@ -101,7 +100,7 @@ contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
-# Plotting the tree
+## Plotting the tree
 
 Here we will use the classifier data, which was previously obtained from the training_set data
 We will plot a classifier and in text, we will use classifier and cex with 0.6, where is the relation with the default value

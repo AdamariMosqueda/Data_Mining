@@ -1,4 +1,4 @@
-# Random Forest
+# Practice Random Forest
 
 ## Graph 1: Training set
 ```R
