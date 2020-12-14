@@ -1,28 +1,28 @@
  # Exam 
 
 ## Naive Bayes
-En un sentido amplio, los modelos de Naive Bayes son una clase especial de algoritmos de clasificación de Aprendizaje Automatico, o Machine Learning, tal y como nos referiremos de ahora en adelante. Se basan en una técnica de clasificación estadística llamada “teorema de Bayes”.
+In a broad sense, Naive Bayes models are a special class of classification algorithms for Machine Learning, or Machine Learning, as we will refer to from now on. They are based on a statistical classification technique called "Bayes's theorem."
 
 
-En ellos se asume que las variables predictoras son independientes entre sí. En otras palabras, que la presencia de una cierta característica en un conjunto de datos no está en absoluto relacionada con la presencia de cualquier otra característica.
-Proporcionan una manera fácil de construir modelos con un comportamiento muy bueno debido a su simplicidad.
-Lo consiguen proporcionando una forma de calcular la probabilidad ‘posterior’ de que ocurra un cierto evento A, dadas algunas probabilidades de eventos ‘anteriores’.
+They assume that the predictor variables are independent of each other. In other words, that the presence of a certain feature in a data set is not at all related to the presence of any other feature.
+They provide an easy way to build very well behaved models due to their simplicity.
+They do this by providing a way of calculating the 'later' probability of a certain event A occurring, given some probabilities of 'earlier' events.
 
 
 ## Code
-El examen consiste en implementar el modelo de clasificación Naive Bayes con el conjunto de datos Social_Network_Ads.csv, utilizando la librería e1071 con la función naiveBayes() y hacer un análisis de las gráficas
+The exam consists of implementing the Naive Bayes classification model with the Social_Network_Ads.csv data set, using the e1071 library with the naiveBayes () function and doing an analysis of the graphs
 
 ```R
 setwd("C:/")
 dataset = read.csv('Social_Network_Ads.csv')
 dataset = dataset[3:5]
 ```
-Indicamos en dónde esta nuestro archivo csv y creamos un nuevo dataset que va a contener toda esta información, de este dataset tomamos solo las columnas que nos interesan que es desde la 3 hasta la 5.
+We indicate where our csv file is and we create a new dataset that will contain all this information, from this dataset we take only the columns that interest us, which is from 3 to 5.
 
 ```R
 dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
 ```
-Del dataset se obtiene la columna Purchased, esta contendra valores de 1 y 0, que nos dice si es verdadero o falso, al trabajar con booleanos es mas sencillo manipular la columna.
+From the dataset the Purchased column is obtained, it will contain values of 1 and 0, which tells us if it is true or false, when working with Booleans it is easier to manipulate the column.
 
 ```R
 library(caTools)
@@ -31,7 +31,7 @@ split = sample.split(dataset$Purchased, SplitRatio = 0.75)
 training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 ```
-Usamos la librería caTools para implantar una semilla 123, entonces se hace la división de nuestro dataset en dos, tarining_set que contiene los valores verdaderos y test_set que contiene los valores falsos.
+We use the caTools library to implement a 123 seed, then we divide our dataset in two, tarining_set containing the true values and test_set containing the false values.
 
 ```r
 training_set[-3] = scale(training_set[-3])
@@ -47,21 +47,21 @@ classifier = naiveBayes(formula = Purchased ~ .,
                         kernel = 'linear')
 naiveBayes
 ```
-Las librerias de e1071, nos servira para implementar metodos para el apredizaje estadistico, para esto usaremos el metodo de naiveBayes, donde la formula sera igual a todos los datos de la muestra purchased, el data sera igual al conjunto de entrenamiento, el tipo sera la etiqueta para predecir que es C-classification y el kernel sera linear, por el uso de 2 etiquetas o los simbolos de color diferente.
+The e1071 libraries will serve us to implement methods for statistical learning, for this we will use the naiveBayes method, where the formula will be equal to all the data of the purchased sample, the data will be equal to the training set, the type will be the label to predict what is C-classification and the kernel will be linear, by using 2 labels or symbols of different color.
 
 # Predicting the Test set results
 ```R
 y_pred = predict(classifier, newdata = test_set[-3])
 y_pred
 ```
-Creamos la prediccion del eje Y, donde obtendremos como resultado las compras realizadas
+We create the prediction of the Y axis, where we will obtain the purchases made as a result
 
 # Making the Confusion Matrix
 ```R
 cm = table(test_set[, 3], y_pred)
 cm
 ```
-En la matriz de confusion, tenemos nuestros datos reales y las predicciones, que al final nos dara como resultado la exactitud de los datos
+In the confusion matrix, we have our real data and predictions, which in the end will give us the accuracy of the data.
 
 # Visualising the Training set results
 ```R
@@ -80,14 +80,14 @@ contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
-Se hace uso de la librería ElemStatLearn que es la que nos ayuda a definir los colores, en el set va training set, donde X1 tiene el mínimo de set que se le da el valor de 1, menos 1, y se saca el máximo también dándole el valor de 1, a X2 se le da parámetros parecido con la diferencia que le damos el valor de 2. Creamos un grid que es la expansión entre X1 y X2, donde las columnas de este grid con Age y EstimatedSalary, creamos y_grid que será nuestro eje y, que contiene el la expansión de las X y classifier que contiene las predicciones correctas y errores.
+The ElemStatLearn library is used, which is the one that helps us define the colors, in the set goes training set, where X1 has the minimum set that is given the value of 1, minus 1, and the maximum is also taken giving the value of 1, X2 is given similar parameters with the difference that we give the value of 2. We create a grid that is the expansion between X1 and X2, where the columns of this grid with Age and EstimatedSalary, we create y_grid that It will be our y-axis, which contains the expansion of the X and the classifier that contains the correct predictions and errors.
 
-En el ploteo se coloca el título con main, con lab se modifican las leyendas de los ejes y con lim indicamos el rango, donde se hace un contour que incluye X1, X2, la matriz que tiene y_grid, la logitud de las X y que sea VERDADERO.
-Los puntos se obtienen de grid_set, que es el fondo de la gráfica con colores rojos y verdes, pero para visualizar mejor los datos se agregan otros puntos con otros tonos de verde y rojo.
+In the plot the title is placed with main, with lab the legends of the axes are modified and with lim we indicate the range, where a contour is made that includes X1, X2, the matrix that has y_grid, the length of the X and that be TRUE.
+The points are obtained from grid_set, which is the background of the graph with red and green colors, but to better visualize the data, other points with other shades of green and red are added.
 
 ![Rplot](https://i.imgur.com/twJe9wj.png)
 
-El modelo Naive Bayes crea una curva para separar los datos, los datos en la zona roja deben ser puntos de color rojo mientras que los datos de la zona verde deben de ser puntos de color verde, pero no es un modelo 100 exacto, tiene un margen de error por lo que hay datos de color verde en la zona roja y viceversa, no son pocos datos que sin querer estuvieran mal acomodados, son varios los que atravesaron la zona y por el acomodo que tienen parece que una curva no es el acomodo más óptimo.
+The Naive Bayes model creates a curve to separate the data, the data in the red zone must be red points while the data in the green zone must be green points, but it is not an exact 100 model, it has a margin of error, so there is green data in the red zone and vice versa, there are few data that were unintentionally poorly arranged, there are several that crossed the area and because of the arrangement they have it seems that a curve is not the arrangement more optimal.
 
 # Visualising the Test set results
 ```R
@@ -108,4 +108,4 @@ points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 
 ![Rplot01](https://i.imgur.com/ZMQQFok.png)
 
-En Test set son menos datos, es por ello que hay menos errores pero igual hay unos datos en rojo que se alejaron demasiado de la zona roja.
+In Test set there is less data, that is why there are fewer errors but there is still some data in red that went too far from the red zone.

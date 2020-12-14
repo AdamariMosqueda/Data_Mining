@@ -52,7 +52,7 @@ ggplot() +
   ylab('Salary')
 ```
 
-![Rplot](https://i.imgur.com/dp750v1.png)
+![Rplot](https://i.imgur.com/dilICda.png)
 
 ## Visualising the Test set results
 
@@ -73,4 +73,5 @@ ggplot() +
   ylab('Salary')
 ```
 
-![Rplot01](https://i.imgur.com/Jc4aZcH.png)
+![Rplot01](https://i.imgur.com/pHCXcEs.png)
+
