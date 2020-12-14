@@ -80,7 +80,14 @@ contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
+Se hace uso de la librería ElemStatLearn que es la que nos ayuda a definir los colores, en el set va training set, donde X1 tiene el mínimo de set que se le da el valor de 1, menos 1, y se saca el máximo también dándole el valor de 1, a X2 se le da parámetros parecido con la diferencia que le damos el valor de 2. Creamos un grid que es la expansión entre X1 y X2, donde las columnas de este grid con Age y EstimatedSalary, creamos y_grid que será nuestro eje y, que contiene el la expansión de las X y classifier que contiene las predicciones correctas y errores.
+
+En el ploteo se coloca el título con main, con lab se modifican las leyendas de los ejes y con lim indicamos el rango, donde se hace un contour que incluye X1, X2, la matriz que tiene y_grid, la logitud de las X y que sea VERDADERO.
+Los puntos se obtienen de grid_set, que es el fondo de la gráfica con colores rojos y verdes, pero para visualizar mejor los datos se agregan otros puntos con otros tonos de verde y rojo.
+
 ![Rplot](https://i.imgur.com/twJe9wj.png)
+
+El modelo Naive Bayes crea una curva para separar los datos, los datos en la zona roja deben ser puntos de color rojo mientras que los datos de la zona verde deben de ser puntos de color verde, pero no es un modelo 100 exacto, tiene un margen de error por lo que hay datos de color verde en la zona roja y viceversa, no son pocos datos que sin querer estuvieran mal acomodados, son varios los que atravesaron la zona y por el acomodo que tienen parece que una curva no es el acomodo más óptimo.
 
 # Visualising the Test set results
 ```R
@@ -100,3 +107,5 @@ points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
 
 ![Rplot01](https://i.imgur.com/ZMQQFok.png)
+
+En Test set son menos datos, es por ello que hay menos errores pero igual hay unos datos en rojo que se alejaron demasiado de la zona roja.
