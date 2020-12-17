@@ -31,7 +31,7 @@ plot(1:10,
 
 
 set.seed(29)
-kmeans = kmeans(x = dataset, centers = 5)
+kmeans = kmeans(x = dataset, centers = 3)
 y_kmeans = kmeans$cluster
 
 library(cluster)
@@ -44,7 +44,7 @@ clusplot(dataset,
          labels = 2,
          plotchar = FALSE,
          span = TRUE,
-         main = paste('Clusters of customers'),
+         main = paste('Clusters of iris'),
          xlab = 'Annual Income',
          ylab = 'Spending Score')
 
