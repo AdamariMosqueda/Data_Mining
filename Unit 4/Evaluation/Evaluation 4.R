@@ -1,13 +1,14 @@
-#Implementar el modelo de agrupación K-Means con el conjunto de datos Iris.csv que
-#se encuentra en https://github.com/jcromerohdz/iris utilizando el método
+#Implementar el modelo de agrupaci?n K-Means con el conjunto de datos Iris.csv que
+#se encuentra en https://github.com/jcromerohdz/iris utilizando el m?todo
 #kmeans() en R. Una vez que se obtenga el modelo de agrupamiento hacer el analis
-#de visualización de datos correspondiente.
+#de visualizaci?n de datos correspondiente.
 
 #Al finalizar el desarrollo explicar detalladamente en consiste el modelo de
-#agrupación K-Means y cuales fuerón sus observacines en el analisis de visualización
+#agrupaci?n K-Means y cuales fuer?n sus observacines en el analisis de visualizaci?n
 #de datos.
 
 setwd("C:/")
+setwd("/home/alejandro/Data_Mining/Unit 4/Evaluation/")
 getwd()
 
 dataset = read.csv('iris.csv')
@@ -27,3 +28,23 @@ plot(1:10,
      main = paste('The Elbow Method'),
      xlab = 'Number of clusters',
      ylab = 'WCSS')
+
+
+set.seed(29)
+kmeans = kmeans(x = dataset, centers = 5)
+y_kmeans = kmeans$cluster
+
+library(cluster)
+
+clusplot(dataset,
+         y_kmeans,
+         lines = 0,
+         shade = TRUE,
+         color = TRUE,
+         labels = 2,
+         plotchar = FALSE,
+         span = TRUE,
+         main = paste('Clusters of customers'),
+         xlab = 'Annual Income',
+         ylab = 'Spending Score')
+
