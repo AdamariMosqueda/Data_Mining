@@ -1,26 +1,27 @@
 # Exam U4
-Para este examen usamos el método de agrupación de K-Means para el archivo iris.csv
+
+For this exam we use the K-Means grouping method for the iris.csv file
 ```R
 setwd("C:/")
 setwd("/home/alejandro/Data_Mining/Unit 4/Evaluation/")
 getwd()
 ```
-Indicamos la ruta en la que vamos a estar trabajando, que es donde esta nuestro archivo csv
+We indicate the path in which we are going to be working, which is where our csv file is
 
 ```R
 dataset = read.csv('iris.csv')
 dataset = dataset[1:4]
 dataset
 ```
-Creamos el dataset con los datos de iris.csv y solo seleccionamos desde la columna 1 a la 4 porque la columna 5 tiene valores string
+We create the dataset with the data from iris.csv and we only select from column 1 to 4 because column 5 has string values
 
 ```R
 set.seed(6)
 wcss = vector()
-                   #suma de cuadrados dentro de cada grupo
+                   
 for (i in 1:10) wcss[i] = sum(kmeans(dataset, i)$withinss)
 ```
-Implementamos la semilla con el valor de 6 y creamos el vector, wcss son las siglas de "suma de los cuadrados dentro de cada grupo", creamos un ciclo for donde i va a ir de 1 a 10, indicando el número de clusters, a cada vector se le da la suma de wcss.
+We implement the seed with the value of 6 and create the vector, wcss stands for "sum of the squares within each group", we create a for loop where i will go from 1 to 10, indicating the number of clusters, a Each vector is given the sum of wcss.
 
 ```R
 plot(1:10,
@@ -30,11 +31,61 @@ plot(1:10,
      xlab = 'Number of clusters',
      ylab = 'WCSS')
 ```
-Hacemos el ploteo del método Elbow con los valores de cada clusters, el tipo se refiere a lo que se va a plotear, l es lineal, p es point, y b es both.
+We plot the Elbow method with the values of each cluster, the type refers to what is going to be plotted, l is linear, p is point, and b is both.
 ![Imgur](https://imgur.com/SiBcgLn.png)
 
-Este método sirve para identificar el número óptimo de K, en la gráfica se encuentra el “punto codo”, donde la tasa de descenso se “afila”.
+This method serves to identify the optimal number of K, in the graph is the "elbow point", where the rate of descent is "sharpened".
 
 ![Imgur](https://imgur.com/T6lFpNL.png)
 
-Por eso llegamos a la conclusión que el valor óptimo para K es 3
+So we conclude that the optimal value for K is 3
+
+
+```R
+set.seed(29)
+kmeans = kmeans(x = dataset, centers = 3)
+y_kmeans = kmeans$cluster
+y_kmeans
+```
+We generate the random numbers with set.seed
+
+We create the variable kmeans, where it will be equal to our dataset and the centers that is the result of the elbow.
+In y_kmeans, it will be equal to our kmeans data, but we will only take the results of the cluster.
+
+```R
+library(cluster)
+```
+We load the cluster library
+
+```R
+clusplot(dataset,
+         y_kmeans,
+         lines = 0,
+         shade = TRUE,
+         color = TRUE,
+         labels = 2,
+         plotchar = FALSE,
+         span = TRUE,
+         main = paste('Clusters of iris'),
+         xlab = 'Component Two',
+         ylab = 'Component One')
+```
+In the clusplot, we will have our dataset, the result of y_kmeans, lines will be equal to zero.
+
+shade: where if true, the ellipses will be shaded in relation to their density.
+
+color: if true, each ellipse will have a different color.
+
+labels: accepts only integer numbers, and is used to get an idea of the distances between ellipses.
+
+plotchar: if true, the plot symbols differ for points belonging to different groups, in this case we will use false.
+
+span: if true, then each group is represented by an ellipse with the smallest area containing all of its points.
+
+Finally, in main, it is the main name of our graph, in xlab we have component two and in ylab we have component one
+
+![plot_zoom_pn](https://i.imgur.com/YTGfd3A.png)
+
+These two components explain 95.8 points of variability
+
+We can see the setosa cluster perfectly explained, while virginica and versicolor have similar values between their ellipses.
