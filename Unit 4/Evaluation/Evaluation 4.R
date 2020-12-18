@@ -34,6 +34,9 @@ set.seed(29)
 kmeans = kmeans(x = dataset, centers = 3)
 y_kmeans = kmeans$cluster
 
+
+y_kmeans
+
 library(cluster)
 
 clusplot(dataset,
@@ -45,6 +48,6 @@ clusplot(dataset,
          plotchar = FALSE,
          span = TRUE,
          main = paste('Clusters of iris'),
-         xlab = 'Annual Income',
-         ylab = 'Spending Score')
+         xlab = 'Component Two',
+         ylab = 'Component One')
 
