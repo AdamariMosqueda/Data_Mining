@@ -1,18 +1,18 @@
 # Unit 1
-* [Practices]()
-  * [Practice 1]() 
-  * [Practice 2]()
-  * [Practice 3]()
-* [Researches]()
-  * [MOSQUEDA ESPINOZA ADAMARI ANTONIA]()
-    * [Research 1]() 
-    * [Research 2]()
+* [Practices](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Practice)
+  * [Practice 1](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Practice/Practice%201) 
+  * [Practice 2](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Practice/Practice%202)
+  * [Practice 3](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Practice/Practice%203)
+* [Researches](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Research)
+  * [MOSQUEDA ESPINOZA ADAMARI ANTONIA](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Research/MOSQUEDA%20ESPINOZA%20ADAMARI%20ANTONIA)
+    * [Research 1](https://github.com/AdamariMosqueda/Data_Mining/blob/development/Unit%201/Research/MOSQUEDA%20ESPINOZA%20ADAMARI%20ANTONIA/Research%201/Research%201.md) 
+    * [Research 2](https://github.com/AdamariMosqueda/Data_Mining/blob/development/Unit%201/Research/MOSQUEDA%20ESPINOZA%20ADAMARI%20ANTONIA/Research%202/Research%202.md)
 
-  * [OSUNA ENCISO PABLO ALEJANDRO]()
-    * [Research 1]() 
-    * [Research 2]()
-* [Evaluation]()
-   + [Exam]()
+  * [OSUNA ENCISO PABLO ALEJANDRO](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Research/OSUNA%20ENCISO%20PABLO%20ALEJANDRO)
+    * [Research 1](https://github.com/AdamariMosqueda/Data_Mining/blob/development/Unit%201/Research/OSUNA%20ENCISO%20PABLO%20ALEJANDRO/Research%201/Research%201.md) 
+    * [Research 2](https://github.com/AdamariMosqueda/Data_Mining/blob/development/Unit%201/Research/OSUNA%20ENCISO%20PABLO%20ALEJANDRO/Research%202/Research%202.md)
+* [Evaluation](https://github.com/AdamariMosqueda/Data_Mining/tree/development/Unit%201/Evaluation/Evaluation%201)
+   + [Exam](https://github.com/AdamariMosqueda/Data_Mining/blob/development/Unit%201/Evaluation/Evaluation%201/README.md)
 
 # Unit 2
 
